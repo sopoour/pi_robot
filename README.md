@@ -1,6 +1,6 @@
-# Pi Robot Project based on Mark Dammer STS Pilot 
+# Pi Robot with CV & various sensors
 
-This Project is based on this GitHub Project: https://github.com/mark-orion/STS-PiLot. 
+This Project is based on the STS Pilot by Mark Dammer from this GitHub Project: https://github.com/mark-orion/STS-PiLot. 
 
 ## Planned Modifications/Additions to initial project
 
