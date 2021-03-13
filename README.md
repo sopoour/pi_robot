@@ -126,4 +126,3 @@ Use non-threaded video with [msecs] delay between frames.
 * client - example programs to control your STS-PiLot instance from another computer.
 
 Enjoy! Mark Dammer, Forres, Scotland 2017
-# pi_robot
