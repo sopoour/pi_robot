@@ -4,11 +4,11 @@ This Project is based on the STS Pilot by Mark Dammer from this GitHub Project: 
 
 ## Planned Modifications/Additions to initial project (ordered based on prio)
 
-1. Change of UI making a joystick like interface, more clean and useable
-1. Connecting RPi and Pi-Camera data to Google Cloud services
+1. Improving UI making a joystick like interface, more clean and useable
 1. Adding RFID sensor to "unlock" the robot, i.e. by holding the tag against the reader the app.py is run 
 1. Adding HC-SR04 Ultrasonic sensor as distance sensor to avoid crushing into any object even with remote control
-1. Connect Rpi to Google Cloud IoT and synch sensor data for analysis/tracking
+1. Deploying application on Google App Engine (WSGI server hosted by Google and not self-hosted with mod_wsgi)
+1. Connecting Rpi to Google Cloud IoT and synch sensor data (video stream, RFID data, distance sensor) for analysis/tracking
 1. Adding Computer Vision (CV) & program robot to be self-driving based on CV & distance sensor (--> backup is always remote control)
 1. Adding Pollution sensor to track air pollution while the robot is moving, connect it to Google Cloud as well
 
