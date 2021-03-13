@@ -1,14 +1,18 @@
-# STS-PiLot
-AJAX remote control web interface with live video for the [Pimoroni STS-Pi](https://shop.pimoroni.com/products/sts-pi) and other robotics projects.  
-  
-**ATTENTION:** There is a **new app** called "app_sanic.py" that uses the [SANIC framework](https://github.com/huge-success/sanic) instead of flask. This app works with both Python3 and PyPy3, but not Python2.  
-Videostreaming is now provided via the [UV4L video driver/streaming server](https://www.linux-projects.org/uv4l/). UV4L must be installed separately. The default UV4L stream settings (Port 8080, /stream/video.mjpeg) are used to embed the video into the STS-Pilot web UI. This app was developed for increased video performance (UV4L) and better resource usage (PyPy3).  
-autostart_sanic.sh can be used to start both the sanic based app and the UV4L streaming server.  
-  
-"app.py" still contains the flask + gevent.wsgi based app.  
-An entire flask based app is available as "app_flask.py"  
-The live streaming part of the flask based apps is based on the example code provided by Miguel Grinberg https://github.com/miguelgrinberg/flask-video-streaming. For better stability and performance network connectivity is provided by the [Gevent](http://www.gevent.org) WSGI server.
-Pictures and videos on the Hackaday.io project page: https://hackaday.io/project/20149-sts-pilot-robotics-remote-control
+# Pi Robot Project based on Mark Dammer STS Pilot 
+
+This Project is based on this GitHub Project: https://github.com/mark-orion/STS-PiLot. 
+
+## Planned Modifications/Additions to initial project
+
+* Change of UI making a joystick like interface, more clean and useable
+* Connecting RPi and Pi-Camera data to Google Cloud services
+* Adding RFID sensor to "unlock" the robot, i.e. by holding the tag against the reader the app.py is run 
+* Adding HC-SR04 Ultrasonic sensor as distance sensor to avoid crushing into any object 
+* Connect Rpi to Google Cloud IoT and synch sensor data for analysis/tracking
+* Adding Computer Vision
+* Adding Pollution sensor to track air pollution while the robot is moving, connect it to Google Cloud as well
+
+# STS Pilot by Mark Dammer (copied readme) 
 
 ## Features
 * Responsive (portrait and landscape mode) AJAX interface for use on desktops, laptops, tablets and phones.
