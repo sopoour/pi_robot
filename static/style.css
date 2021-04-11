@@ -174,7 +174,7 @@ background-color: #A4F886;
     /*add some mobile specifics*/
 
 /*new part*/
-
+}
 #u_90 {
     position: absolute;
     width: 45px;
@@ -213,7 +213,6 @@ background-color: #A4F886;
     height: 49px;
     left: 55px;
     top: 458px;
-
     background: #4E4A4A;
     transform: rotate(-90deg);
 }
