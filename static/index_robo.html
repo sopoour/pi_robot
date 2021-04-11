@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- Font Awesome icons-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+<script src="/static/stspilot.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta http-equiv="cache-control" content="max-age=0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="cache-control" content="no-store">
+<meta http-equiv="expires" content="-1">
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 11:00:00 GMT">
+<meta http-equiv="pragma" content="no-cache">
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+</head>
+<body>
+    <div class="container mainscreen">
+        <section id="videowrapper" onclick="brake()">
+            <div id="video"></div>
+            <div id="overlay">
+                <div id="status"></div>
+                <div id="sensors"></div>
+            </div>
+        </section>
+        <section class="buttonbar">	
+            <div id="blue" class="touchpad" onclick="touchpad(1)">1</div>
+            <div id="yellow" class="touchpad" onclick="touchpad(2)">2</div>
+            <div id="red" class="touchpad" onclick="touchpad(3)">3</div>
+            <div id="green" class="touchpad" onclick="touchpad(4)">4</div>
+            <div id="hud" class="touchpad" onclick="toggle_hud()">HUD</div>
+        </section>
+        <section class="controlpad">
+            <div class="row">
+                <div class="col"><h1></h1></div>
+                <div id="front" class="col"><h1><i class="fa fa-chevron-circle-up"></i></h1></div>
+                <div class="col"><h1></h1></div>
+            </div>
+            <div class="row">
+                <div id="left" class="col"><h1><i class="fa fa-chevron-circle-left"></i></h1></div>
+                <div id="stop" class="col" onclick="brake()"><h1><i class="fa fa-stop-circle"></i></h1></div>
+                <div id="right" class="col"><h1><i class="fa fa-chevron-circle-right"></i></h1></div>
+            </div>
+            <div class="row">
+                <div class="col"><h1></h1></div>
+                <div id="back" class="col"><h1><i class="fa fa-chevron-circle-down"></i></h1></div>
+                <div class="col"><h1></h1></div>
+            </div>
+        </section>
+        <section class="speedbar">	
+            <div id="slow" class="speed">Slow</div>
+            <div id="medium" class="speed">Medium</div>
+            <div id="fast" class="speed">Fast</div>
+        </section>
+    </div>     
+
+<!--
+    <div id="mainscreen">
+    <div id="u_90" class="controlpad">&nbsp;</div>
+    <div id="r_90" class="controlpad">&nbsp;</div>
+    <div id="d_90" class="controlpad">&nbsp;</div>
+    <div id="l_90" class="controlpad">&nbsp;</div>
+    
+<div id="stop" onclick="brake()"><div class="label">Stop!</div></div>
+<div id="middle">
+<div id="videowrapper" onclick="brake()">
+<div id="video"></div>
+<div id="overlay">
+<div id="status"></div>
+<div id="sensors"></div>
+</div>
+</div>
+<div id="buttonbar">	
+<div id="blue" class="touchpad" onclick="touchpad(1)"><div class="label">1</div></div>
+<div id="yellow" class="touchpad" onclick="touchpad(2)"><div class="label">2</div></div>
+<div id="red" class="touchpad" onclick="touchpad(3)"><div class="label">3</div></div>
+<div id="green" class="touchpad" onclick="touchpad(4)"><div class="label">4</div></div>
+<div id="hud" class="touchpad" onclick="toggle_hud()"><div class="label">HUD</div></div>
+</div>	
+</div>
+<div id="rightbar">
+<div id="r100" class="controlpad speed_100" onclick="motor_r(100)">&nbsp;</div>
+<div id="r60" class="controlpad speed_60" onclick="motor_r(60)">&nbsp;</div>
+<div id="r30" class="controlpad speed_30" onclick="motor_r(30)">&nbsp;</div>
+<div id="r0" class="controlpad speed_0" onclick="motor_r(0)">&nbsp;</div>
+<div id="r-30" class="controlpad speed_30" onclick="motor_r(-30)">&nbsp;</div>
+<div id="r-60" class="controlpad speed_60" onclick="motor_r(-60)">&nbsp;</div>
+<div id="r-100" class="controlpad speed_100" onclick="motor_r(-100)">&nbsp;</div>
+</div>
+
+</div>
+-->
+</body>
+</html>
