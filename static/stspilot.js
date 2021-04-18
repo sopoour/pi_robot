@@ -154,6 +154,26 @@ function motor_r(rspeed) {
 function speed(value){
     newSpeed = value;
     set_doubleclick();
+    if (value == 30){
+        document.getElementById('slow').style.opacity = '0.5';
+        document.getElementById('medium').style.opacity = '1';
+        document.getElementById('fast').style.opacity = '1';
+    }
+    else if (value == 60){
+        document.getElementById('medium').style.opacity = '0.5';
+        document.getElementById('slow').style.opacity = '1';
+        document.getElementById('fast').style.opacity = '1';
+    }
+    else if (value == 100){
+        document.getElementById('fast').style.opacity = '0.5';
+        document.getElementById('medium').style.opacity = '1';
+        document.getElementById('slow').style.opacity = '1';
+    }
+    else {
+        document.getElementById('slow').style.opacity = '1';
+        document.getElementById('medium').style.opacity = '1';
+        document.getElementById('fast').style.opacity = '1';
+    }
 }
 
 //left(newSpeed)
@@ -164,6 +184,11 @@ function left(speed) {
         newSpeedL = speed;
         set_doubleclick();
         set_motor();
+        document.getElementById('left').style.opacity = '0.5';
+        document.getElementById('right').style.opacity = '1';
+        document.getElementById('forward').style.opacity = '1';
+        document.getElementById('backward').style.opacity = '1';
+        document.getElementById('stop').style.opacity = '1';
     }
     else {
         //increase the left motor by the amount of right motor
@@ -180,6 +205,11 @@ function right(speed) {
         newSpeedR = speed;
         set_doubleclick();
         set_motor();
+        document.getElementById('right').style.opacity = '0.5';
+        document.getElementById('left').style.opacity = '1';
+        document.getElementById('forward').style.opacity = '1';
+        document.getElementById('backward').style.opacity = '1';
+        document.getElementById('stop').style.opacity = '1';
     }
     else {
         newSpeedR += newSpeedL;
@@ -194,6 +224,11 @@ function forward(speed) {
     newSpeedR = speed;
     set_doubleclick();
     set_motor();
+    document.getElementById('forward').style.opacity = '0.5';
+    document.getElementById('right').style.opacity = '1';
+    document.getElementById('left').style.opacity = '1';
+    document.getElementById('backward').style.opacity = '1';
+    document.getElementById('stop').style.opacity = '1';
 }
 
 //backward(newSpeed)
@@ -202,6 +237,11 @@ function backward(speed) {
     newSpeedR = -speed;
     set_doubleclick();
     set_motor();
+    document.getElementById('backward').style.opacity = '0.5';
+    document.getElementById('right').style.opacity = '1';
+    document.getElementById('forward').style.opacity = '1';
+    document.getElementById('left').style.opacity = '1';
+    document.getElementById('stop').style.opacity = '1';
 }
 
 function set_motor() {
@@ -228,6 +268,11 @@ function brake() {
     newSpeedR = 0;
     newSpeedL = 0;
     set_motor();
+    document.getElementById('stop').style.opacity = '0.5';
+    document.getElementById('right').style.opacity = '1';
+    document.getElementById('left').style.opacity = '1';
+    document.getElementById('forward').style.opacity = '1';
+    document.getElementById('backward').style.opacity = '1';
 }
 heartbeat();
 

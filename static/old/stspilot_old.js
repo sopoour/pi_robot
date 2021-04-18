@@ -21,10 +21,9 @@ var showHUD = true;
 var video = false;
 var framerate = 0;
 var link = true;
-var streamingserver = 'http://' + document.location.hostname + ':8080/stream/';
-var videoimg = '<img src="' + streamingserver + 'video.mjpeg" alt="Connecting to Live Video">';
-var frameimg = '<img id="sframe" src="' + streamingserver + 'video.jpeg" alt="Connecting to Live Video">';
-var framesrc = '/video.jpeg';
+var videoimg = '<img src="/video_feed.mjpg" alt="Connecting to Live Video">'
+var frameimg = '<img id="sframe" src="/single_frame.jpg" alt="Connecting to Live Video">'
+var framesrc = '/single_frame.jpg'
 var inactive = "0px";
 var active = "10px solid black";
 var clickTimer = setTimeout(reset_doubleclick, doubleClickTimer);
@@ -44,7 +43,7 @@ function checkVideo() {
 	if (video) {
 		if (framerate > 0) {
 			document.getElementById("video").innerHTML = frameimg;
-			setInterval(reloadFrame, video);
+			setInterval(reloadFrame, framerate);
 		} else {
 			document.getElementById("video").innerHTML = videoimg;
 		}
@@ -64,7 +63,13 @@ function updateHUD(e) {
 	if (getSensors.readyState == 4 && getSensors.status == 200) {
         var response = JSON.parse(getSensors.responseText);
         video = response.v;
-        status = "STS-PiLot Status<br>Link: online<br>";
+        framerate = response.f;
+        status = "STS-PiLot Status<br>Link: online<br>Videolink: ";
+	if (framerate > 0) {
+		status += (Math.ceil(1000 / framerate) + " FPS");
+	} else {
+        	status += video;
+	}
         status += "<br>Motor L: ";
         status += response.l;
         status += "<br>Motor R: ";
@@ -169,7 +174,3 @@ function brake() {
     set_motor();
 }
 heartbeat();
-
-
-
-
