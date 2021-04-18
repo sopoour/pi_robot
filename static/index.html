@@ -2,7 +2,15 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/static/style.css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- Font Awesome icons-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
 <script src="/static/stspilot.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <meta http-equiv="cache-control" content="max-age=0">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="cache-control" content="no-store">
@@ -12,16 +20,52 @@
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 </head>
 <body>
-<div id="mainscreen">
-<div id="leftbar">
-<div id="l100" class="controlpad speed_100" onclick="motor_l(100)">&nbsp;</div>
-<div id="l60" class="controlpad speed_60" onclick="motor_l(60)">&nbsp;</div>
-<div id="l30" class="controlpad speed_30" onclick="motor_l(30)">&nbsp;</div>
-<div id="l0" class="controlpad speed_0" onclick="motor_l(0)">&nbsp;</div>
-<div id="l-30" class="controlpad speed_30" onclick="motor_l(-30)">&nbsp;</div>
-<div id="l-60" class="controlpad speed_60" onclick="motor_l(-60)">&nbsp;</div>
-<div id="l-100" class="controlpad speed_100" onclick="motor_l(-100)">&nbsp;</div>
-</div>
+    <div class="container mainscreen">
+        <section id="videowrapper" onclick="brake()">
+            <div id="video"></div>
+            <div id="overlay">
+                <div id="status"></div>
+                <div id="sensors"></div>
+            </div>
+        </section>
+        <section class="buttonbar">	
+            <div id="blue" class="touchpad" onclick="touchpad(1)">1</div>
+            <div id="yellow" class="touchpad" onclick="touchpad(2)">2</div>
+            <div id="red" class="touchpad" onclick="touchpad(3)">3</div>
+            <div id="green" class="touchpad" onclick="touchpad(4)">4</div>
+            <div id="hud" class="touchpad" onclick="toggle_hud()">HUD</div>
+        </section>
+        <section class="controlpad">
+            <div class="row">
+                <div class="col"><h1></h1></div>
+                <div id="forward" class="col" onclick="forward(newSpeed)"><h1><i class="fa fa-chevron-circle-up"></i></h1></div>
+                <div class="col"><h1></h1></div>
+            </div>
+            <div class="row">
+                <div id="left" class="col" onclick="left(newSpeed)"><h1><i class="fa fa-chevron-circle-left"></i></h1></div>
+                <div id="stop" class="col" onclick="brake()"><h1><i class="fa fa-stop-circle"></i></h1></div>
+                <div id="right" class="col" onclick="right(newSpeed)"><h1><i class="fa fa-chevron-circle-right"></i></h1></div>
+            </div>
+            <div class="row">
+                <div class="col"><h1></h1></div>
+                <div id="backward" class="col" onclick="backward(newSpeed)"><h1><i class="fa fa-chevron-circle-down"></i></h1></div>
+                <div class="col"><h1></h1></div>
+            </div>
+        </section>
+        <section class="speedbar">	
+            <div id="slow" class="speed" onclick="speed(30)">Slow</div>
+            <div id="medium" class="speed" onclick="speed(60)">Medium</div>
+            <div id="fast" class="speed" onclick="speed(100)">Fast</div>
+        </section>
+    </div>     
+
+<!--
+    <div id="mainscreen">
+    <div id="u_90" class="controlpad">&nbsp;</div>
+    <div id="r_90" class="controlpad">&nbsp;</div>
+    <div id="d_90" class="controlpad">&nbsp;</div>
+    <div id="l_90" class="controlpad">&nbsp;</div>
+    
 <div id="stop" onclick="brake()"><div class="label">Stop!</div></div>
 <div id="middle">
 <div id="videowrapper" onclick="brake()">
@@ -48,6 +92,8 @@
 <div id="r-60" class="controlpad speed_60" onclick="motor_r(-60)">&nbsp;</div>
 <div id="r-100" class="controlpad speed_100" onclick="motor_r(-100)">&nbsp;</div>
 </div>
+
 </div>
+-->
 </body>
 </html>

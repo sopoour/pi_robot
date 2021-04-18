@@ -16,6 +16,7 @@ var newSpeedL = 0;
 var newSpeedR = 0;
 var actSpeedL = 0;
 var actSpeedR = 0;
+var newSpeed = 0;
 var doubleClick = false;
 var showHUD = true;
 var video = false;
@@ -148,18 +149,73 @@ function motor_r(rspeed) {
     }
     set_motor();
 }
+
+//speed(30) = slow, speed(60) = medium, speed(100) = fast
+function speed(value){
+    newSpeed = value;
+    set_doubleclick();
+}
+
+//left(newSpeed)
+function left(speed) {
+    newSpeedR = 10;
+    //only if the right left motor speed is higher than the left one we set it to the speed
+    if (speed > newSpeedR) {
+        newSpeedL = speed;
+        set_doubleclick();
+        set_motor();
+    }
+    else {
+        //increase the left motor by the amount of right motor
+        newSpeedL += newSpeedR;
+        set_doubleclick();
+        set_motor();
+    }  
+}
+
+//right(newSpeed)
+function right(speed) {
+    newSpeedL = 10;
+    if (speed > newSpeedL) {
+        newSpeedR = speed;
+        set_doubleclick();
+        set_motor();
+    }
+    else {
+        newSpeedR += newSpeedL;
+        set_doubleclick();
+        set_motor();
+    }  
+}
+
+//forward(newSpeed)
+function forward(speed) {
+    newSpeedL = speed;
+    newSpeedR = speed;
+    set_doubleclick();
+    set_motor();
+}
+
+//backward(newSpeed)
+function backward(speed) {
+    newSpeedL = -speed;
+    newSpeedR = -speed;
+    set_doubleclick();
+    set_motor();
+}
+
 function set_motor() {
     var motor_url = "/motor?l=" + newSpeedL.toString() + '&r=' + newSpeedR.toString();
     request.open("GET", motor_url, true);
     request.send(null);
-    var oldId = "l" + actSpeedL.toString();
-    var newId = "l" + newSpeedL.toString();
-    document.getElementById(oldId).style.outline = inactive;
-    document.getElementById(newId).style.outline = active;
-    oldId = "r" + actSpeedR.toString();
-    newId = "r" + newSpeedR.toString();
-    document.getElementById(oldId).style.outline = inactive;
-    document.getElementById(newId).style.outline = active;
+    //var oldId = "l" + actSpeedL.toString();
+    //var newId = "l" + newSpeedL.toString();
+    //document.getElementById(oldId).style.outline = inactive;
+    //document.getElementById(newId).style.outline = active;
+    //oldId = "r" + actSpeedR.toString();
+    //newId = "r" + newSpeedR.toString();
+    //document.getElementById(oldId).style.outline = inactive;
+    //document.getElementById(newId).style.outline = active;
     actSpeedL = newSpeedL;
     actSpeedR = newSpeedR;
 }
