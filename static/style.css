@@ -9,7 +9,7 @@ font-family: 'Roboto Mono';
 body .container {
     width: 100%;
     height: 100%;
-    margin: 0 auto;   
+    margin: auto;   
 }
 
 .controlpad .row{
@@ -24,27 +24,31 @@ transform: translateY(-50%);
 }
 
 #videowrapper {
+display: flex;
 position: relative;
 width: 100%;
-height: 90%;
+height: 100%;
 }
     
 #video {
-z-index: 1;
+display: flex;
+position: relative;   
+/*z-index: 1;*/
 width: 100%;
 height: 100%;
 }
 
+/*
 #video img {
 width: 100%;
 height: 100%;
 object-fit: contain;
-}
+}*/
 
 #overlay {
 position: absolute;
 display: block;
-z-index: 2;
+/*z-index: 2;*/
 width: 100%;
 height: 100%;
 margin-top: 3%; 
@@ -53,7 +57,6 @@ left: 0;
 color: #A4F886;
 text-align: center;
 font-family: "Roboto Mono";
-
 }
 
 .controlpad {
@@ -98,7 +101,6 @@ margin: 5% 0 5% 0;
 display: flex;
 align-items: center;
 text-align: center;
-z-index: 1000;
 }
 
 .touchpad {
@@ -137,10 +139,10 @@ background-color: #F8CA86;
 
 
 .speedbar {
+margin: 5% 0 5% 0; 
 display: flex;
 align-items: center;
 text-align: center;
-margin-bottom: 1%;
 }
 
 .speed {
