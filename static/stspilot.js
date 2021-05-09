@@ -129,6 +129,7 @@ function set_doubleclick() {
     clickTimer = setTimeout(reset_doubleclick, doubleClickTimer);
     doubleClick = true;
 }
+/*
 function motor_l(lspeed) {
     newSpeedL = lspeed;
     if (lspeed == actSpeedL && lspeed != actSpeedR && doubleClick) {
@@ -149,6 +150,7 @@ function motor_r(rspeed) {
     }
     set_motor();
 }
+*/
 
 //speed(30) = slow, speed(60) = medium, speed(100) = fast
 function speed(value){
@@ -178,10 +180,10 @@ function speed(value){
 
 //left(newSpeed)
 function left(speed) {
-    newSpeedR = 10;
-    //only if the right left motor speed is higher than the left one we set it to the speed
-    if (speed > newSpeedR) {
-        newSpeedL = speed;
+    newSpeedL = 10;
+    //only if the right motor speed is higher than the left one we set it to the speed
+    if (speed > newSpeedL) {
+        newSpeedR = speed;
         set_doubleclick();
         set_motor();
         document.getElementById('left').style.opacity = '0.5';
@@ -191,8 +193,8 @@ function left(speed) {
         document.getElementById('stop').style.opacity = '1';
     }
     else {
-        //increase the left motor by the amount of right motor
-        newSpeedL += newSpeedR;
+        //increase the right motor by the amount of left motor so that it def turns left
+        newSpeedR += newSpeedL;
         set_doubleclick();
         set_motor();
     }  
@@ -200,9 +202,9 @@ function left(speed) {
 
 //right(newSpeed)
 function right(speed) {
-    newSpeedL = 10;
-    if (speed > newSpeedL) {
-        newSpeedR = speed;
+    newSpeedR = 10;
+    if (speed > newSpeedR) {
+        newSpeedL = speed;
         set_doubleclick();
         set_motor();
         document.getElementById('right').style.opacity = '0.5';
@@ -212,7 +214,7 @@ function right(speed) {
         document.getElementById('stop').style.opacity = '1';
     }
     else {
-        newSpeedR += newSpeedL;
+        newSpeedL += newSpeedR;
         set_doubleclick();
         set_motor();
     }  
