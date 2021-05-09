@@ -24,14 +24,13 @@ transform: translateY(-50%);
 }
 
 #videowrapper {
-padding: 10%;
 position: relative;
 width: 100%;
 height: 90%;
 }
     
 #video {
-z-index:1;
+z-index: 1;
 width: 100%;
 height: 100%;
 }
@@ -44,10 +43,11 @@ object-fit: contain;
 
 #overlay {
 position: absolute;
-z-index: 100;
+display: block;
+z-index: 2;
 width: 100%;
 height: 100%;
-margin-top: 5%; 
+margin-top: 3%; 
 top: 0;
 left: 0;
 color: #A4F886;
@@ -58,7 +58,7 @@ font-family: "Roboto Mono";
 
 .controlpad {
 padding: 10% 10% 10% 10%;
-z-index: 1000;
+z-index: 3;
 align-self: center;
 text-align: center;
 overflow: hidden;
@@ -135,14 +135,12 @@ background-color: #A4F886;
 background-color: #F8CA86;
 }
 
-#l0, #r0 {
-outline: 10px solid black;
-}
 
 .speedbar {
 display: flex;
 align-items: center;
 text-align: center;
+margin-bottom: 1%;
 }
 
 .speed {
