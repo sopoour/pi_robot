@@ -12,7 +12,7 @@ from gevent.pywsgi import WSGIServer
 import config as cfg
 
 import camera_pi as cam
-#import camera_cv as cam
+#import camera_cv as cams
 
 import io_wrapper as hw
 #import io_wrapper_dummy as hw
