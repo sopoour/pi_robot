@@ -129,28 +129,6 @@ function set_doubleclick() {
     clickTimer = setTimeout(reset_doubleclick, doubleClickTimer);
     doubleClick = true;
 }
-/*
-function motor_l(lspeed) {
-    newSpeedL = lspeed;
-    if (lspeed == actSpeedL && lspeed != actSpeedR && doubleClick) {
-	newSpeedR = lspeed;
-	doubleClick = false;
-    } else {
-	set_doubleclick();
-    }
-    set_motor();
-}
-function motor_r(rspeed) {
-    newSpeedR = rspeed;
-    if (rspeed == actSpeedR && rspeed != actSpeedL && doubleClick) {
-	newSpeedL = rspeed;
-	doubleClick = false;
-    } else {
-	set_doubleclick();
-    }
-    set_motor();
-}
-*/
 
 //speed(30) = slow, speed(60) = medium, speed(100) = fast
 function speed(value){
@@ -246,6 +224,17 @@ function backward(speed) {
     document.getElementById('stop').style.opacity = '1';
 }
 
+function brake() {
+    newSpeedR = 0;
+    newSpeedL = 0;
+    set_motor();
+    document.getElementById('stop').style.opacity = '0.5';
+    document.getElementById('right').style.opacity = '1';
+    document.getElementById('left').style.opacity = '1';
+    document.getElementById('forward').style.opacity = '1';
+    document.getElementById('backward').style.opacity = '1';
+}
+
 function set_motor() {
     var motor_url = "/motor?l=" + newSpeedL.toString() + '&r=' + newSpeedR.toString();
     request.open("GET", motor_url, true);
@@ -266,16 +255,7 @@ function touchpad(pad) {
     request.open("GET", touchpad_url, true);
     request.send(null);
 }
-function brake() {
-    newSpeedR = 0;
-    newSpeedL = 0;
-    set_motor();
-    document.getElementById('stop').style.opacity = '0.5';
-    document.getElementById('right').style.opacity = '1';
-    document.getElementById('left').style.opacity = '1';
-    document.getElementById('forward').style.opacity = '1';
-    document.getElementById('backward').style.opacity = '1';
-}
+
 heartbeat();
 
 

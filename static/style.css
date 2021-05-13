@@ -8,7 +8,7 @@ font-family: 'Roboto Mono';
 
 body .container {
     max-width: 100%;
-    margin: 0 auto;   
+    margin: 3% auto;
 }
 
 .controlpad .row{
@@ -23,16 +23,15 @@ transform: translateY(-50%);
 }
 
 #videowrapper {
-    padding: 10%;
     position: relative;
     width: 100%;
-    height: 90%;
+    max-height: 50%;
 }
     
 #video {
     z-index:1;
     width: 100%;
-    height: 100%;
+    max-height: 50%;
 }
 
 
@@ -48,7 +47,7 @@ display: block;
 z-index: 2;
 width: 100%;
 height: 100%;
-margin-top: 3%; 
+margin-top: 10%; 
 top: 0;
 left: 0;
 bottom: 70%;
@@ -58,7 +57,7 @@ font-family: "Roboto Mono";
 }
 
 .controlpad {
-padding: 5% 5% 5% 5%;
+padding: 2% 2% 2% 2%;
 z-index: 3;
 align-self: center;
 text-align: center;
@@ -79,23 +78,25 @@ overflow: hidden;
     }
 
 #status {
-top: 0;
+top: 5%;
 float: left;
 text-align: left;
 padding: 5px;
 width: 40%;
+font-size: small;
 }
 
 #sensors {
-top: 0;
+top: 5%;
 float: right;
 text-align: right;
 padding: 5px;
 width: 40%;
+font-size: small;
 }
 
 .buttonbar {
-margin: 5% 0 5% 0; 
+margin-top: 5%; 
 display: flex;
 align-items: center;
 text-align: center;
@@ -137,7 +138,7 @@ background-color: #F8CA86;
 
 
 .speedbar {
-margin: 5% 0 5% 0; 
+/*margin: 1% 0 5% 0;*/ 
 display: flex;
 align-items: center;
 text-align: center;
