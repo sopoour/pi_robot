@@ -11,6 +11,8 @@ import os
 reader = SimpleMFRC522()
 #client = mqtt.Client("SopoRFID")
 
+#TODO: import config/io_wrapper to this file & call all the ExplorerHat functions so that it actually connects to the different pins
+
 try:
         print("Please place your key against the reader")
 
@@ -18,6 +20,8 @@ try:
                 """ Returns a string with the time and date """
                 return time.strftime("%d %b %Y %H:%M:%S", time.gmtime())
         id, name = reader.read()
+        print(id)
+        print(name)
         name = name.strip()
         if id == "863881349114":
                 os.chdir(r"/home/pi/pi_robot")
