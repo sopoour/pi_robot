@@ -7,7 +7,7 @@ import threading
 import time
 import json
 from flask import Flask, request, Response
-from gevent.pywsgi import WSGIServer
+from gevent.pywsgi import WSGIServer # type: ignore
 
 import config as cfg
 
@@ -218,6 +218,7 @@ if __name__ == '__main__':
     
     # register signal handler for a clean exit    
     signal.signal(signal.SIGINT, signal_handler)
+    
 
     # register handler for touchpads
     if hw.explorerhat:
