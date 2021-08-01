@@ -210,7 +210,7 @@ def single_frame():
     else:
         return 'no video'
 
-if __name__ == '__main__':
+def main ():
     hw.light_green_blink(0.1)
     time.sleep(1)
     hw.light_green_off()
@@ -225,11 +225,17 @@ if __name__ == '__main__':
         hw.xhat.touch.released(touch_handler)
         
     # prepare and start watchdog
+    global wd 
     wd = threading.Thread(name='watchdog_timer', target=watchdog_timer)
     wd.start()
     
     #app.run(host='0.0.0.0', debug=False, threaded=True)
     #WSGI = server-application interface for Python
     #WSGI is now the accepted approach for running Python web applications.
+    global http_server
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
+
+
+if __name__ == '__main__':
+    main()

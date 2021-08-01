@@ -17,7 +17,6 @@ from subprocess import call
 reader = SimpleMFRC522()
 #client = mqtt.Client("SopoRFID")
 
-#TODO: fix the buggy motor behavior when opening app.py via read.py or find a better way to open app.py via RFID sensor!
 
 try:
         #read input 2 in order to call RFID on explorer hat
@@ -30,20 +29,20 @@ try:
         if state == 1:
                 id, name = reader.read()
                 print(id)
-                app
+                app.main()
                 #name = name.strip()
                 #if id == "863881349114":
-                #os.chdir(r"/home/pi/pi_robot")
-                #os.system("python3 app.py")
 
         #rfidData = json.dumps({"carKey": carKey, "renterID": str(id), "timestamp": get_time()})
         #print("Connecting to Broker")
         #client.connect("192.168.0.25")
         #print("Publishing RFID Data" + rfidData)
         #client.publish("rfidData", rfidData)
-#except:
- #       print ("Couldn't open reader!")
-  #      sys.exit()
+except OSError as err:
+    print("OS error: {0}".format(err))
+except:
+    print("Unexpected error:", sys.exc_info()[0])
+    raise
 finally:
         print("cleaning up RFID")
         GPIO.cleanup()
