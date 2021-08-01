@@ -7,7 +7,7 @@ import threading
 import time
 import json
 from flask import Flask, request, Response
-from gevent.pywsgi import WSGIServer # type: ignore
+from gevent.pywsgi import WSGIServer
 
 import config as cfg
 

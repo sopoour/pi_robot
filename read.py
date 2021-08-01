@@ -9,6 +9,7 @@ import os
 #import paho.mqtt.client as mqtt
 #import explorer hat configs:
 import io_wrapper as hw
+import app as app
 
 #to shut-down Rpi
 from subprocess import call
@@ -29,10 +30,11 @@ try:
         if state == 1:
                 id, name = reader.read()
                 print(id)
+                app
                 #name = name.strip()
                 #if id == "863881349114":
-                os.chdir(r"/home/pi/pi_robot")
-                os.system("python3 app.py")
+                #os.chdir(r"/home/pi/pi_robot")
+                #os.system("python3 app.py")
 
         #rfidData = json.dumps({"carKey": carKey, "renterID": str(id), "timestamp": get_time()})
         #print("Connecting to Broker")
