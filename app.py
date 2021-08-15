@@ -17,6 +17,7 @@ import camera_pi as cam
 import io_wrapper as hw
 #import io_wrapper_dummy as hw
 
+
 app = Flask(__name__, static_url_path='/static')
 
 # Immobilizes sytem (chocks on) after 'timeout' seconds 
@@ -48,6 +49,7 @@ def touch_handler(channel, event):
         if cfg.blue:
             hw.light_blue_on()
             hw.output_one_on()
+            #signal_handler()
         else:
             hw.light_blue_off()
             hw.output_one_off()
@@ -218,7 +220,6 @@ def main ():
     
     # register signal handler for a clean exit    
     signal.signal(signal.SIGINT, signal_handler)
-    
 
     # register handler for touchpads
     if hw.explorerhat:
